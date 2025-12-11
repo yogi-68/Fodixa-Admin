@@ -1,12 +1,16 @@
 {
   "name": "fodixa-admin",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
+  "displayName": "Fodixa Admin Dashboard",
   "scripts": {
     "dev": "next dev -p 3003",
     "build": "next build",
+    "build:prod": "NODE_ENV=production next build",
     "start": "next start -p 3003",
-    "lint": "eslint"
+    "start:prod": "NODE_ENV=production next start -p 3003",
+    "lint": "eslint --fix",
+    "clean": "rimraf .next"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
