@@ -59,7 +59,7 @@ export default function DashboardPage() {
         totalRevenue: 456780.25,
       });
     } catch (error) {
-      console.error('Error loading stats:', error);
+      // Error loading stats
     } finally {
       setLoading(false);
     }

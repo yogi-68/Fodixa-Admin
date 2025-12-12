@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "displayName": "Fodixa Admin Dashboard",
+  "description": "Platform admin dashboard for Fodixa management",
+  "author": "Fodixa Team",
+  "license": "UNLICENSED",
   "scripts": {
     "dev": "next dev -p 3003",
     "build": "next build",
@@ -14,6 +17,7 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
+    "@supabase/supabase-js": "^2.39.3",
     "axios": "^1.7.9",
     "date-fns": "^4.1.0",
     "next": "16.0.8",

@@ -85,7 +85,7 @@ export default function RestaurantsPage() {
 
       setRestaurants(filtered);
     } catch (error) {
-      console.error('Error loading restaurants:', error);
+      // Error loading restaurants
     } finally {
       setLoading(false);
     }
@@ -96,7 +96,7 @@ export default function RestaurantsPage() {
       await adminAPI.approveRestaurant(id);
       loadRestaurants();
     } catch (error) {
-      console.error('Error approving restaurant:', error);
+      // Error approving restaurant
     }
   };
 
@@ -108,7 +108,7 @@ export default function RestaurantsPage() {
       await adminAPI.rejectRestaurant(id, reason);
       loadRestaurants();
     } catch (error) {
-      console.error('Error rejecting restaurant:', error);
+      // Error rejecting restaurant
     }
   };
 

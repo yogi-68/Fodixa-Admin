@@ -65,7 +65,7 @@ export default function OrdersPage() {
 
       setOrders(filtered);
     } catch (error) {
-      console.error('Error loading orders:', error);
+      // Error loading orders
     } finally {
       setLoading(false);
     }

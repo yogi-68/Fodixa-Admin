@@ -93,7 +93,7 @@ export default function RidersPage() {
 
       setRiders(filtered);
     } catch (error) {
-      console.error('Error loading riders:', error);
+      // Error loading riders
     } finally {
       setLoading(false);
     }
@@ -104,7 +104,7 @@ export default function RidersPage() {
       await adminAPI.approveRider(id);
       loadRiders();
     } catch (error) {
-      console.error('Error approving rider:', error);
+      // Error approving rider
     }
   };
 
@@ -116,7 +116,7 @@ export default function RidersPage() {
       await adminAPI.rejectRider(id, reason);
       loadRiders();
     } catch (error) {
-      console.error('Error rejecting rider:', error);
+      // Error rejecting rider
     }
   };
 
