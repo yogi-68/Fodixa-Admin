@@ -238,4 +238,16 @@ export const subscribeToAllOrders = (callback: (order: any) => void) => {
 };
 
 // Export common auth functions
-export { signOut, getCurrentUser, getSession } from '../../../FodixaVendor/src/lib/supabase';
+export const signOut = async () => {
+  await supabase.auth.signOut();
+};
+
+export const getCurrentUser = async () => {
+  const { data: { user } } = await supabase.auth.getUser();
+  return user;
+};
+
+export const getSession = async () => {
+  const { data: { session } } = await supabase.auth.getSession();
+  return session;
+};
