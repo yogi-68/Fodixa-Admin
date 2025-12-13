@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 import { adminAPI } from '@/lib/api';
 import {
   BuildingStorefrontIcon,
@@ -150,18 +151,18 @@ export default function DashboardPage() {
                 <p className="font-medium text-gray-900">New Restaurant Applications</p>
                 <p className="text-sm text-gray-600">{stats.pendingRestaurants} pending review</p>
               </div>
-              <button className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 text-sm font-medium">
+              <Link href="/dashboard/restaurants" className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 text-sm font-medium">
                 Review
-              </button>
+              </Link>
             </div>
             <div className="flex items-center justify-between p-3 bg-blue-50 rounded-lg">
               <div>
                 <p className="font-medium text-gray-900">Rider Verifications</p>
                 <p className="text-sm text-gray-600">{stats.pendingRiders} pending verification</p>
               </div>
-              <button className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 text-sm font-medium">
+              <Link href="/dashboard/riders" className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 text-sm font-medium">
                 Review
-              </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -170,22 +171,22 @@ export default function DashboardPage() {
         <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
           <h2 className="text-lg font-bold text-gray-900 mb-4">Quick Actions</h2>
           <div className="grid grid-cols-2 gap-3">
-            <button className="p-4 border-2 border-gray-200 rounded-lg hover:border-red-600 hover:bg-red-50 transition-all text-left">
+            <Link href="/dashboard/restaurants" className="p-4 border-2 border-gray-200 rounded-lg hover:border-red-600 hover:bg-red-50 transition-all text-left">
               <BuildingStorefrontIcon className="h-6 w-6 text-red-600 mb-2" />
               <p className="font-medium text-gray-900 text-sm">Add Restaurant</p>
-            </button>
-            <button className="p-4 border-2 border-gray-200 rounded-lg hover:border-red-600 hover:bg-red-50 transition-all text-left">
+            </Link>
+            <Link href="/dashboard/riders" className="p-4 border-2 border-gray-200 rounded-lg hover:border-red-600 hover:bg-red-50 transition-all text-left">
               <TruckIcon className="h-6 w-6 text-red-600 mb-2" />
               <p className="font-medium text-gray-900 text-sm">Add Rider</p>
-            </button>
-            <button className="p-4 border-2 border-gray-200 rounded-lg hover:border-red-600 hover:bg-red-50 transition-all text-left">
+            </Link>
+            <Link href="/dashboard/orders" className="p-4 border-2 border-gray-200 rounded-lg hover:border-red-600 hover:bg-red-50 transition-all text-left">
               <ShoppingBagIcon className="h-6 w-6 text-red-600 mb-2" />
               <p className="font-medium text-gray-900 text-sm">View Orders</p>
-            </button>
-            <button className="p-4 border-2 border-gray-200 rounded-lg hover:border-red-600 hover:bg-red-50 transition-all text-left">
+            </Link>
+            <Link href="/dashboard/payouts" className="p-4 border-2 border-gray-200 rounded-lg hover:border-red-600 hover:bg-red-50 transition-all text-left">
               <CurrencyDollarIcon className="h-6 w-6 text-red-600 mb-2" />
               <p className="font-medium text-gray-900 text-sm">Payouts</p>
-            </button>
+            </Link>
           </div>
         </div>
       </div>
