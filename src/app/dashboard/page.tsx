@@ -45,21 +45,21 @@ export default function DashboardPage() {
 
   const loadStats = async () => {
     try {
-      // Mock data for now - will connect to backend later
+      const response = await adminAPI.getStats();
       setStats({
-        totalRestaurants: 145,
-        activeRestaurants: 132,
-        pendingRestaurants: 8,
-        totalRiders: 89,
-        activeRiders: 67,
-        pendingRiders: 5,
-        todayOrders: 342,
-        todayRevenue: 12450.50,
-        totalOrders: 15680,
-        totalRevenue: 456780.25,
+        totalRestaurants: response.data.totalRestaurants || 0,
+        activeRestaurants: response.data.activeRestaurants || 0,
+        pendingRestaurants: response.data.pendingRestaurants || 0,
+        totalRiders: response.data.totalRiders || 0,
+        activeRiders: response.data.activeRiders || 0,
+        pendingRiders: response.data.pendingRiders || 0,
+        todayOrders: response.data.todayOrders || 0,
+        todayRevenue: Number(response.data.todayRevenue || 0),
+        totalOrders: response.data.totalOrders || 0,
+        totalRevenue: Number(response.data.totalRevenue || 0),
       });
     } catch (error) {
-      // Error loading stats
+      console.error('Error loading stats:', error);
     } finally {
       setLoading(false);
     }
@@ -72,8 +72,6 @@ export default function DashboardPage() {
       subtitle: `${stats.activeRestaurants} active · ${stats.pendingRestaurants} pending`,
       icon: BuildingStorefrontIcon,
       color: 'blue',
-      trend: '+12%',
-      trendUp: true,
     },
     {
       title: 'Total Riders',
@@ -81,8 +79,6 @@ export default function DashboardPage() {
       subtitle: `${stats.activeRiders} active · ${stats.pendingRiders} pending`,
       icon: TruckIcon,
       color: 'green',
-      trend: '+8%',
-      trendUp: true,
     },
     {
       title: 'Today Orders',
@@ -90,8 +86,6 @@ export default function DashboardPage() {
       subtitle: `${stats.totalOrders} total orders`,
       icon: ShoppingBagIcon,
       color: 'orange',
-      trend: '+15%',
-      trendUp: true,
     },
     {
       title: 'Today Revenue',
@@ -99,8 +93,6 @@ export default function DashboardPage() {
       subtitle: `$${stats.totalRevenue.toFixed(2)} total`,
       icon: CurrencyDollarIcon,
       color: 'purple',
-      trend: '+22%',
-      trendUp: true,
     },
   ];
 
@@ -141,17 +133,6 @@ export default function DashboardPage() {
                 <div className={`p-3 rounded-lg ${colors.icon}`}>
                   <card.icon className={`h-6 w-6 ${colors.text}`} />
                 </div>
-              </div>
-              <div className="flex items-center mt-4">
-                {card.trendUp ? (
-                  <ArrowTrendingUpIcon className="h-4 w-4 text-green-600" />
-                ) : (
-                  <ArrowTrendingDownIcon className="h-4 w-4 text-red-600" />
-                )}
-                <span className={`text-sm font-medium ml-1 ${card.trendUp ? 'text-green-600' : 'text-red-600'}`}>
-                  {card.trend}
-                </span>
-                <span className="text-xs text-gray-500 ml-2">vs last week</span>
               </div>
             </div>
           );
