@@ -68,7 +68,7 @@ export const getDashboardStats = async () => {
     .select('total')
     .eq('payment_status', 'COMPLETED');
 
-  const totalRevenue = revenueData?.reduce((sum, order) => sum + Number(order.total), 0) || 0;
+  const totalRevenue = revenueData?.reduce((sum: number, order: any) => sum + Number(order.total), 0) || 0;
 
   return {
     totalUsers,
@@ -217,7 +217,7 @@ export const subscribeToNewOrders = (callback: (order: any) => void) => {
         schema: 'public',
         table: 'orders',
       },
-      (payload) => callback(payload.new),
+      (payload: any) => callback(payload.new),
     )
     .subscribe();
 };
@@ -232,7 +232,7 @@ export const subscribeToAllOrders = (callback: (order: any) => void) => {
         schema: 'public',
         table: 'orders',
       },
-      (payload) => callback(payload.new),
+      (payload: any) => callback(payload.new),
     )
     .subscribe();
 };
